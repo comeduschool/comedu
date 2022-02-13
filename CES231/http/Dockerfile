@@ -9,7 +9,5 @@ COPY req.txt .
 # express 설치
 RUN npm install
 RUN npm install express --save
-RUN npm install body-parser --save
-
 
 CMD ['node', 'app01.js']

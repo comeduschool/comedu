@@ -23,5 +23,5 @@ docker run -d -p 3101:3000 --name http-02 http:test node app02.js
 
 ## 요청 보내기
 ```shell
-nc localhost 3102 < req.txt
+nc localhost 3101 < req.txt
 ```

@@ -2,6 +2,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
+
 app.get('/', (req, res) => {
   console.log("/")
   res.send('Hello Comedu!')
@@ -22,11 +27,11 @@ app.get('/raw', (req, res) => {
 
 app.post('/raw', (req, res)=>{
   console.log("/raw")
-  console.log(`headers: ${req.headers}`)
+  console.log(`headers: ${JSON.stringify(req.headers)}`)
   console.log(`body: ${req.body}`)
   const data = {
-    'headers': JSON.stringify(req.headers),
-    'body': JSON.stringify(req.body)
+    'headers': JSON.parse(JSON.stringify(req.headers)),
+    'body': req.body
   };
   res.send(data);
 })
